@@ -13,7 +13,8 @@
             var $outerElement = $(outerElement),
                 totalWidth    = 0,
                 $wrapper      = $('<div></div>'),
-                childCount    = $outerElement.children().length;
+                childCount    = $outerElement.children().length,
+                animation;
 
             // initialise wrapping element
             $wrapper.insertBefore($outerElement);
@@ -80,7 +81,9 @@
                 return animation;
             }
 
-            if (!detectAnimation()) {
+            animation = detectAnimation();
+
+            if (!animation) {
                 function startAnimation()
                 {
                     $outerElement.css({
@@ -107,6 +110,22 @@
                     '-msie-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite linear',
                     animation: 'tickerAnimation ' + (settings.speed * childCount) + 's infinite linear'
                 });
+            }
+
+            // set up hover functions to pause animation
+            if (animation) {
+                // pause css3 animation
+                $outerElement.hover(function () {
+                    $(this).css({
+                        animationPlayState: 'paused'
+                    });
+                }, function () {
+                    $(this).css({
+                        animationPlayState: 'running'
+                    });
+                });
+            } else {
+                // todo: pause jQuery animation
             }
         });
     };
