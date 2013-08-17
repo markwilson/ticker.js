@@ -80,7 +80,7 @@
                 return animation;
             }
 
-            if (true || !detectAnimation()) {
+            if (!detectAnimation()) {
                 function startAnimation()
                 {
                     $outerElement.css({
