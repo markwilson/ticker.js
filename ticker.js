@@ -101,11 +101,11 @@
                 $('<style>@keyframes tickerAnimation { from { margin-left:0; } to { margin-left: -' + (totalWidth / 2) + 'px; } }</style>').appendTo('head');
 
                 $outerElement.css({
-                    '-webkit-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite',
-                    '-moz-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite',
-                    '-o-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite',
-                    '-msie-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite',
-                    animation: 'tickerAnimation ' + (settings.speed * childCount) + 's infinite'
+                    '-webkit-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite linear',
+                    '-moz-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite linear',
+                    '-o-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite linear',
+                    '-msie-animation': 'tickerAnimation ' + (settings.speed * childCount) + 's infinite linear',
+                    animation: 'tickerAnimation ' + (settings.speed * childCount) + 's infinite linear'
                 });
             }
         });
